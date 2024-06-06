@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 
 # إنشاء الشاشة والألوان
 bg_color = 'black'
@@ -36,8 +37,6 @@ p_backspace = p_backspace.subsample(30,30)
 p_btreq = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\btreq.png')
 p_btreq = p_btreq.subsample(2,4)
 
-p_jorge = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge.png')
-p_jorge = p_jorge.subsample(2,3)
 
 p_happy = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge_happy.png')
 p_happy = p_happy.subsample(2,2)
@@ -87,11 +86,6 @@ style.configure('TLabel',
                 foreground=fg_color,
                 background=bg_color)
 
-# Customizing the style for FLabel
-style.configure('F.TLabel',
-                font=('Arial', 20),
-                foreground='red',
-                background='black')
 
 # Customizing the style for SLabel
 style.configure('S.TLabel',
@@ -121,12 +115,7 @@ def submit():
         photo.destroy()
 
     if ent.get().strip() == '' or len(ent.get()) < 8:
-        w.title("Failed")
-        filed = ttk.Label(w, style='F.TLabel', text='Failed!')
-        filed.place(x=0,y=0)
-
-        jorge = ttk.Label(w,state='TLabel',image=p_jorge)
-        jorge.place(x=50,y=50)
+        messagebox.showinfo(title='Failed message', message='Failed!')
     else:
         w.title("success")
         sub = ttk.Label(w, style='S.TLabel', text='You have successfully logged in!')
@@ -134,7 +123,7 @@ def submit():
 
         jorge = ttk.Label(w,state='TLabel',image=p_happy)
         jorge.place(x=70,y=50)
-    destroy()
+        destroy()
 
 
 # delete أمر حذف النص كامل عند الضغط على

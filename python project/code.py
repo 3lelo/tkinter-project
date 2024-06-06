@@ -5,7 +5,6 @@ from tkinter import messagebox
 # إنشاء الشاشة والألوان
 bg_color = 'black'
 fg_color = 'white'
-highlight_color = bg_color
 
 w = Tk()
 w.title("Password Box")
@@ -16,29 +15,29 @@ style = ttk.Style()
 style.theme_use('clam')
 
 # إضافةالصور
-p = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\cancel.png')
+p = PhotoImage(file='cancel.png')
 p = p.subsample(25,25)
 
-p_show = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\show.png')
+p_show = PhotoImage(file='show.png')
 p_show = p_show.subsample(31,31)
 
-p_hide = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\hide.png')
+p_hide = PhotoImage(file='hide.png')
 p_hide = p_hide.subsample(31,31)
 
-p_lock = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\lock.png')
+p_lock = PhotoImage(file='lock.png')
 p_lock = p_lock.subsample(30,30)
 
-p_delete = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\delete.png')
+p_delete = PhotoImage(file='delete.png')
 p_delete = p_delete.subsample(30,30)
 
-p_backspace = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\backspace.png')
+p_backspace = PhotoImage(file='backspace.png')
 p_backspace = p_backspace.subsample(30,30)
 
-p_btreq = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\btreq.png')
+p_btreq = PhotoImage(file='btreq.png')
 p_btreq = p_btreq.subsample(2,4)
 
 
-p_happy = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge_happy.png')
+p_happy = PhotoImage(file='jorge_happy.png')
 p_happy = p_happy.subsample(2,2)
 
 # Customizing the style for TButton
@@ -51,7 +50,7 @@ style.configure('TButton',
                 padding=3)
 
 style.map('TButton',
-          foreground=[('active', highlight_color)],
+          foreground=[('active', bg_color)],
           background=[('active', fg_color)])
 
 # Customizing the style for show.TButton
@@ -64,21 +63,21 @@ style.configure('show.TButton',
                 padding=6)
 
 style.map('show.TButton',
-          foreground=[('active', highlight_color)],
+          foreground=[('active', bg_color)],
           background=[('active', fg_color)])
 
 # Customizing the style for C.TButton
 style.configure('C.TButton',
-                font=('Arial', 10),
+                font=('Arial', 5),
                 foreground=fg_color,
                 background=bg_color,
                 borderwidth=0,
                 relief="raised",
-                padding=6)
+                padding=0)
 
 style.map('C.TButton',
-          foreground=[('active', highlight_color)],
-          background=[('active', "#eb4034")])
+          foreground=[('active', bg_color)],
+          background=[('active', "#ff4242")])
 
 # Customizing the style for TLabel
 style.configure('TLabel',
@@ -91,7 +90,7 @@ style.configure('TLabel',
 style.configure('S.TLabel',
                 font=('Arial', 20),
                 foreground='green',
-                background='black')
+                background=bg_color)
 
 # Customizing the style for TEntry
 style.configure('TEntry',
@@ -114,8 +113,10 @@ def submit():
         note2.destroy()
         photo.destroy()
 
-    if ent.get().strip() == '' or len(ent.get()) < 8:
-        messagebox.showinfo(title='Failed message', message='Failed!')
+    if ent.get().strip() == '':
+        messagebox.showerror(title='Error', message="Don't leave the box empty")
+    elif len(ent.get()) < 8:
+        messagebox.showerror(title='Error', message="Did you read the note down?")
     else:
         w.title("success")
         sub = ttk.Label(w, style='S.TLabel', text='You have successfully logged in!')
@@ -143,9 +144,6 @@ def show():
         ent.configure(show='')
         shw.configure(text='Hide password  ',image=p_hide)
 
-# أمر انهاء البرنامج عند الضغط على زر الإلغاء
-def end():
-    w.destroy()
 
 # صندوق ادخال النص
 ent = ttk.Entry(w, style='TEntry', show='*')
@@ -173,8 +171,8 @@ back_space = ttk.Button(w, text='Backspace', style='TButton',
 back_space.pack(anchor=W, padx=10, pady=5)
 
 # زر إغلاق البرنامج
-photo_cancel = ttk.Button(w,image=p,style='C.TButton',command=end)
-photo_cancel.place(x=415,y=0)
+photo_cancel = ttk.Button(w,image=p,style='C.TButton',command=w.destroy)
+photo_cancel.place(x=425,y=0)
 
 # زر إظهار كلمة المرور
 shw = ttk.Button(w, text='Show password ', style='show.TButton',

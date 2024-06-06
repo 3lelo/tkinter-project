@@ -15,31 +15,31 @@ style = ttk.Style()
 style.theme_use('clam')
 
 # إضافةالصور
-p = PhotoImage(file='cancel.png')
+p = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\cancel.png')
 p = p.subsample(25,25)
 
-p_show = PhotoImage(file='show.png')
+p_show = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\show.png')
 p_show = p_show.subsample(31,31)
 
-p_hide = PhotoImage(file='hide.png')
+p_hide = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\hide.png')
 p_hide = p_hide.subsample(31,31)
 
-p_lock = PhotoImage(file='lock.png')
+p_lock = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\lock.png')
 p_lock = p_lock.subsample(30,30)
 
-p_delete = PhotoImage(file='delete.png')
+p_delete = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\delete.png')
 p_delete = p_delete.subsample(30,30)
 
-p_backspace = PhotoImage(file='backspace.png')
+p_backspace = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\backspace.png')
 p_backspace = p_backspace.subsample(30,30)
 
-p_btreq = PhotoImage(file='btreq.png')
-p_btreq = p_btreq.subsample(2,3)
+p_btreq = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\btreq.png')
+p_btreq = p_btreq.subsample(2,4)
 
-p_jorge = PhotoImage(file='jorge.png')
-p_jorge = p_jorge.subsample(2,2)
+p_jorge = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge.png')
+p_jorge = p_jorge.subsample(2,3)
 
-p_happy = PhotoImage(file='jorge_happy.png')
+p_happy = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge_happy.png')
 p_happy = p_happy.subsample(2,2)
 
 # Customizing the style for TButton
@@ -47,7 +47,7 @@ style.configure('TButton',
                 font=('Arial', 12),
                 foreground=fg_color,
                 background=bg_color,
-                borderwidth=3,
+                borderwidth=0,
                 relief="raised",
                 padding=3)
 
@@ -60,13 +60,26 @@ style.configure('show.TButton',
                 font=('Arial', 10),
                 foreground=fg_color,
                 background=bg_color,
-                borderwidth=3,
+                borderwidth=0,
                 relief="raised",
                 padding=6)
 
 style.map('show.TButton',
           foreground=[('active', highlight_color)],
           background=[('active', fg_color)])
+
+# Customizing the style for C.TButton
+style.configure('C.TButton',
+                font=('Arial', 10),
+                foreground=fg_color,
+                background=bg_color,
+                borderwidth=0,
+                relief="raised",
+                padding=6)
+
+style.map('C.TButton',
+          foreground=[('active', highlight_color)],
+          background=[('active', "#eb4034")])
 
 # Customizing the style for TLabel
 style.configure('TLabel',
@@ -93,7 +106,7 @@ style.configure('TEntry',
                 background=bg_color,
                 fieldbackground=bg_color,
                 insertcolor=fg_color,
-                padding=5)
+                padding=6)
 
 # submit الأمر الذي سيحصل بعد الضغط على
 def submit():
@@ -113,7 +126,7 @@ def submit():
         filed.place(x=0,y=0)
 
         jorge = ttk.Label(w,state='TLabel',image=p_jorge)
-        jorge.place(x=50,y=30)
+        jorge.place(x=50,y=50)
     else:
         w.title("success")
         sub = ttk.Label(w, style='S.TLabel', text='You have successfully logged in!')
@@ -171,8 +184,8 @@ back_space = ttk.Button(w, text='Backspace', style='TButton',
 back_space.pack(anchor=W, padx=10, pady=5)
 
 # زر إغلاق البرنامج
-photo_cancel = ttk.Button(w,image=p,style='TButton',command=end)
-photo_cancel.place(x=420,y=-7)
+photo_cancel = ttk.Button(w,image=p,style='C.TButton',command=end)
+photo_cancel.place(x=415,y=0)
 
 # زر إظهار كلمة المرور
 shw = ttk.Button(w, text='Show password ', style='show.TButton',
@@ -191,7 +204,7 @@ note2.place(x=150,y=7)
 
 # صورة هبل
 photo = ttk.Label(w,style='TLabel',image=p_btreq)
-photo.place(x=150,y=28)
+photo.place(x=150,y=40)
 
 # تشغيل الكود
 w.mainloop()

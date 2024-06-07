@@ -15,29 +15,29 @@ style = ttk.Style()
 style.theme_use('clam')
 
 # إضافةالصور
-p = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\cancel.png')
+p = PhotoImage(file='cancel.png')
 p = p.subsample(25,25)
 
-p_show = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\show.png')
+p_show = PhotoImage(file='show.png')
 p_show = p_show.subsample(31,31)
 
-p_hide = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\hide.png')
+p_hide = PhotoImage(file='hide.png')
 p_hide = p_hide.subsample(31,31)
 
-p_lock = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\lock.png')
+p_lock = PhotoImage(file='lock.png')
 p_lock = p_lock.subsample(30,30)
 
-p_delete = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\delete.png')
+p_delete = PhotoImage(file='delete.png')
 p_delete = p_delete.subsample(30,30)
 
-p_backspace = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\backspace.png')
+p_backspace = PhotoImage(file='backspace.png')
 p_backspace = p_backspace.subsample(30,30)
 
-p_btreq = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\btreq.png')
+p_btreq = PhotoImage(file='btreq.png')
 p_btreq = p_btreq.subsample(2,4)
 
 
-p_happy = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge_happy.png')
+p_happy = PhotoImage(file='jorge_happy.png')
 p_happy = p_happy.subsample(2,2)
 
 # Customizing the style for TButton

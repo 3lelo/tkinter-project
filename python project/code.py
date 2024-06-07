@@ -15,29 +15,29 @@ style = ttk.Style()
 style.theme_use('clam')
 
 # إضافةالصور
-p = PhotoImage(file='cancel.png')
+p = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\cancel.png')
 p = p.subsample(25,25)
 
-p_show = PhotoImage(file='show.png')
+p_show = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\show.png')
 p_show = p_show.subsample(31,31)
 
-p_hide = PhotoImage(file='hide.png')
+p_hide = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\hide.png')
 p_hide = p_hide.subsample(31,31)
 
-p_lock = PhotoImage(file='lock.png')
+p_lock = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\lock.png')
 p_lock = p_lock.subsample(30,30)
 
-p_delete = PhotoImage(file='delete.png')
+p_delete = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\delete.png')
 p_delete = p_delete.subsample(30,30)
 
-p_backspace = PhotoImage(file='backspace.png')
+p_backspace = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\backspace.png')
 p_backspace = p_backspace.subsample(30,30)
 
-p_btreq = PhotoImage(file='btreq.png')
+p_btreq = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\btreq.png')
 p_btreq = p_btreq.subsample(2,4)
 
 
-p_happy = PhotoImage(file='jorge_happy.png')
+p_happy = PhotoImage(file='C:\\Users\\user\\Desktop\\برمجة\\python project\\jorge_happy.png')
 p_happy = p_happy.subsample(2,2)
 
 # Customizing the style for TButton
@@ -119,11 +119,9 @@ def submit():
         messagebox.showerror(title='Error', message="Did you read the note down?")
     else:
         w.title("success")
-        sub = ttk.Label(w, style='S.TLabel', text='You have successfully logged in!')
-        sub.place(x=0,y=0)
+        ttk.Label(w, style='S.TLabel', text='You have successfully logged in!').place(x=0,y=0)
 
-        jorge = ttk.Label(w,state='TLabel',image=p_happy)
-        jorge.place(x=70,y=50)
+        ttk.Label(w,state='TLabel',image=p_happy).place(x=70,y=50)
         destroy()
 
 
@@ -171,8 +169,7 @@ back_space = ttk.Button(w, text='Backspace', style='TButton',
 back_space.pack(anchor=W, padx=10, pady=5)
 
 # زر إغلاق البرنامج
-photo_cancel = ttk.Button(w,image=p,style='C.TButton',command=w.destroy)
-photo_cancel.place(x=425,y=0)
+ttk.Button(w,image=p,style='C.TButton',command=w.destroy).place(x=425,y=0)
 
 # زر إظهار كلمة المرور
 shw = ttk.Button(w, text='Show password ', style='show.TButton',
